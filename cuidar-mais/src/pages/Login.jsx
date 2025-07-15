@@ -1,51 +1,61 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import InputField from '../components/InputField';
+import Logo from '../assets/logo.png';
 
 const Login = () => {
     const navigate = useNavigate();
 
     return (
         <div style={styles.container}>
-            <h2 style={styles.logo}>Your Logo</h2>
-            <h3 style={styles.title}>Sign in to</h3>
-            <p style={styles.subtitle}>Lorem Ipsum is simply</p>
+            {/* Logo fixa no canto superior esquerdo */}
+            <img 
+                src={Logo} 
+                alt="Logo" 
+                style={styles.logo}
+            />
 
-            <p style={styles.switchText}>
-                If you don't have an account register <br />
-                You can{' '}
-                <span style={styles.link} onClick={() => navigate('/register')}>
-                    Register here !
-                </span>
-            </p>
+            {/* Conteúdo com margem superior para evitar sobreposição da logo */}
+            <div style={{ marginTop: '120px' }}>
+                <h3 style={styles.title}>Sign in to</h3>
+                <p style={styles.subtitle}>Lorem Ipsum is simply</p>
 
-            <InputField placeholder="Enter email or user name" />
-            <InputField type="password" placeholder="Password" />
+                <p style={styles.switchText}>
+                    If you don't have an account register <br />
+                    You can{' '}
+                    <span style={styles.link} onClick={() => navigate('/register')}>
+                        Register here !
+                    </span>
+                </p>
 
-            <p style={styles.forgot}>Forgot password ?</p>
+                <InputField placeholder="Enter email or user name" />
+                <InputField type="password" placeholder="Password" />
 
-            <button style={styles.button} onClick={() => navigate('/home')}>
-                Login
-            </button>
+                <p style={styles.forgot}>Forgot password ?</p>
 
-            <p style={styles.or}>or continue with</p>
+                <button style={styles.button} onClick={() => navigate('/home')}>
+                    Login
+                </button>
 
-            <div style={styles.socialIcons}>
-                <img
-                    src="https://cdn-icons-png.flaticon.com/512/145/145802.png"
-                    style={styles.icon}
-                    alt="facebook"
-                />
-                <img
-                    src="https://cdn-icons-png.flaticon.com/512/731/731985.png"
-                    style={styles.icon}
-                    alt="apple"
-                />
-                <img
-                    src="https://cdn-icons-png.flaticon.com/512/281/281764.png"
-                    style={styles.icon}
-                    alt="google"
-                />
+                <p style={styles.or}>or continue with</p>
+
+                <div style={styles.socialIcons}>
+                    <img
+                        src="https://cdn-icons-png.flaticon.com/512/145/145802.png"
+                        style={styles.icon}
+                        alt="facebook"
+                    />
+                    <img
+                        src="https://cdn-icons-png.flaticon.com/512/731/731985.png"
+                        style={styles.icon}
+                        alt="apple"
+                    />
+                    <img
+                        src="https://cdn-icons-png.flaticon.com/512/281/281764.png"
+                        style={styles.icon}
+                        alt="google"
+                    />
+                </div>
             </div>
         </div>
     );
@@ -57,10 +67,15 @@ const styles = {
         fontFamily: 'sans-serif',
         textAlign: 'left',
         maxWidth: '480px',
-        margin: '0 ',
+        margin: '0 auto',
+        position: 'relative',
     },
     logo: {
-        marginBottom: '20px',
+        position: 'absolute',
+        top: '20px',
+        left: '20px',
+        width: '180px',
+        height: 'auto',
     },
     title: {
         fontSize: '22px',
